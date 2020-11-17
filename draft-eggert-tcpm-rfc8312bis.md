@@ -369,27 +369,18 @@ size to W_max if there are no further congestion events and is
 calculated using the following equation:
 
 ~~~
-    K = cubic_root(W_max * (1 - beta_cubic) / C)      (Eq. 2)
+    if (cwnd < W_max) {
+        K = cubic_root(W_max - cwnd) / C)             (Eq. 2)
+    } else {
+        K = 0
+    }
 ~~~
 
-where beta_cubic is the CUBIC multiplication decrease factor, that
-is, when a congestion event is detected, CUBIC reduces its cwnd to
-W_cubic(0)=W_max*beta_cubic. We discuss how we set beta_cubic in
-{{mult-dec}} and how we set C in {{discussion}}.
-
-As described in Section 4.6, when the saturation point experienced
-by a flow is getting lowered, W_max is reduced for faster
-convergence. In this scenario, Eq. 2 can no longer use
-W_max*beta_cubic. As the cwnd is set to W_max*beta_cubic during
-fast recovery, we can modify Eq. 2 as below:
-
-~~~
-    K = cubic_root(W_max - cwnd) / C)                 (Eq. 3)
-~~~
-
-where cwnd = W_max*beta_cubic before the fast convergence factor
-is applied to W_max. Eq. 3 is more generalized and can be used to
-compute K for all scenarios.
+where cwnd is the reduced congestion window when a congestion
+event is detected. The congestion window is calculated using
+W_cubic(0)=W_max*beta_cubic, where beta_cubic is the CUBIC
+multiplication decrease factor. We discuss how we set beta_cubic
+in {{mult-dec}} and how we set C in {{discussion}}.
 
 Upon receiving an ACK during congestion avoidance, CUBIC computes the
 window increase rate during the next RTT period using Eq. 1. It sets
@@ -422,17 +413,17 @@ Additive Increase and Multiplicative Decrease (AIMD) algorithm with
 an additive factor of alpha_aimd (segments per RTT) and a
 multiplicative factor of beta_aimd, denoted by AIMD(alpha_aimd,
 beta_aimd). Specifically, the average congestion window size of
-AIMD(alpha_aimd, beta_aimd) can be calculated using Eq. 4. The
+AIMD(alpha_aimd, beta_aimd) can be calculated using Eq. 3. The
 analysis shows that AIMD(alpha_aimd, beta_aimd) with
 alpha_aimd=3*(1-beta_aimd)/(1+beta_aimd) achieves the same average
 window size as Standard TCP that uses AIMD(1, 0.5).
 
 ~~~
     AVG_W_aimd = [alpha_aimd * (1 + beta_aimd) /
-                  (2 * (1 - beta_aimd) * p)]^0.5      (Eq. 4)
+                  (2 * (1 - beta_aimd) * p)]^0.5      (Eq. 3)
 ~~~
 
-Based on the above analysis, CUBIC uses Eq. 5 to estimate the window
+Based on the above analysis, CUBIC uses Eq. 4 to estimate the window
 size W_est of AIMD(alpha_aimd, beta_aimd) with
 alpha_aimd=3*(1-beta_cubic)/(1+beta_cubic) and beta_aimd=beta_cubic,
 which achieves the same average window size as Standard TCP. When
@@ -444,7 +435,7 @@ be set to W_est(t) at each reception of an ACK.
 ~~~
     W_est(t) = W_max * beta_cubic +
                [3 * (1 - beta_cubic) / (1 + beta_cubic)] *
-               (t / RTT)                              (Eq. 5)
+               (t / RTT)                              (Eq. 4)
 ~~~
 
 ## Concave Region
@@ -573,18 +564,18 @@ be obtained by the following function:
 ~~~
     AVG_W_cubic = [C * (3 + beta_cubic) /
                    (4 * (1 - beta_cubic))]^0.25 *
-                  (RTT^0.75) / (p^0.75)               (Eq. 6)
+                  (RTT^0.75) / (p^0.75)               (Eq. 5)
 ~~~
 
 With beta_cubic set to 0.7, the above formula is reduced to:
 
 ~~~
     AVG_W_cubic = (C * 3.7 / 1.2)^0.25 * (RTT^0.75) / (p^0.75)
-                                                      (Eq. 7)
+                                                      (Eq. 6)
 ~~~
 
 We will determine the value of C in the following subsection using
-Eq. 7.
+Eq. 6.
 
 ## Fairness to Standard TCP
 
@@ -602,7 +593,7 @@ CUBIC is designed to behave very similarly to Standard TCP in the
 above two types of networks. The following two tables show the
 average window sizes of Standard TCP, HSTCP, and CUBIC. The average
 window sizes of Standard TCP and HSTCP are from {{?RFC3649}}. The
-average window size of CUBIC is calculated using Eq. 7 and the CUBIC
+average window size of CUBIC is calculated using Eq. 6 and the CUBIC
 TCP-friendly region for three different values of C.
 
 ~~~
@@ -664,13 +655,13 @@ CUBIC with a low C cannot efficiently use the bandwidth in long RTT
 and high-bandwidth networks. Based on these observations and our
 experiments, we find C=0.4 gives a good balance between TCP-
 friendliness and aggressiveness of window increase. Therefore, C
-SHOULD be set to 0.4. With C set to 0.4, Eq. 7 is reduced to:
+SHOULD be set to 0.4. With C set to 0.4, Eq. 6 is reduced to:
 
 ~~~
-    AVG_W_cubic = 1.054 * (RTT^0.75) / (p^0.75)       (Eq. 8)
+    AVG_W_cubic = 1.054 * (RTT^0.75) / (p^0.75)       (Eq. 7)
 ~~~
 
-Eq. 8 is then used in the next subsection to show the scalability of
+Eq. 7 is then used in the next subsection to show the scalability of
 CUBIC.
 
 ## Using Spare Capacity
