@@ -369,7 +369,7 @@ size to W_max if there are no further congestion events and is
 calculated using the following equation:
 
 ~~~
-        K = cubic_root(W_max - cwnd) / C)             (Eq. 2)
+    K = cubic_root(W_max - cwnd) / C)                 (Eq. 2)
 ~~~
 
 where cwnd is the reduced congestion window when a congestion
