@@ -330,7 +330,7 @@ W_cubic(t):
 W_est(t):
 : an estimate for the congestion window in segments at time t in seconds
   in the TCP-friendly region, that is, an estimate for the congestion
-  window if New Reno congestion controller was used.
+  window if the TCP-NewReno congestion controller was used.
 
 # CUBIC Congestion Control
 
