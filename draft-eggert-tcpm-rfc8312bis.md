@@ -312,7 +312,7 @@ Variables required to implement CUBIC are described in this section.
 RTT:
 : the weighted average RTT in seconds calculated by Standard TCP.
 cwnd:
-: Current congestion window of a flow in segments.
+: Current congestion window in segments.
 ssthresh:
 : Current slow start threshold in segments.
 W_max:
