@@ -316,8 +316,8 @@ cwnd:
 ssthresh:
 : Current slow start threshold in segments.
 W_max:
-: Size of the congestion window in segments just before the congestion
-  window is reduced in the last congestion event.
+: Size of the cwnd in segments just before the cwnd is reduced in the
+  last congestion event.
 W_last_max:
 : last value of W_max in segments before W_max is updated for the current
   congestion event.
