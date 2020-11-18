@@ -290,12 +290,17 @@ of statistical multiplexing, thus achieving intra-algorithm fairness.
 We also find that under the environments with sufficient statistical
 multiplexing, the convergence speed of CUBIC flows is reasonable.
 
-# Definitions
+# CUBIC Congestion Control
+
+In this section, we discuss how the congestion window is updated
+during the different stages of the CUBIC congestion controller.
+
+## Definitions
 
 The unit of all window sizes in this document is segments of the
 maximum segment size (MSS), and the unit of all times is seconds.
 
-## Constants of interest
+### Constants of interest
 
 beta_cubic:
 : CUBIC multiplication decrease factor as described in {{mult-dec}}
@@ -305,12 +310,12 @@ C:
   {{discussion}} for more explanation on how it is set. The unit for
   C is 1/(second)^3
 
-## Variables of interest
+### Variables of interest
 
 Variables required to implement CUBIC are described in this section.
 
 RTT:
-: the weighted average RTT in seconds calculated by Standard TCP.
+: smoothed round-trip time in seconds calculated as described in {{!RFC6298}}
 cwnd:
 : Current congestion window in segments.
 ssthresh:
@@ -332,10 +337,6 @@ W_est(t):
   in the TCP-friendly region, that is, an estimate for the congestion
   window if the TCP-NewReno congestion controller was used.
 
-# CUBIC Congestion Control
-
-In this section, we discuss how the congestion window is updated
-during the different stages of the CUBIC congestion controller.
 
 ## Window Increase Function {#win-inc}
 
