@@ -378,9 +378,9 @@ calculated using the following equation:
 
 where cwnd is the reduced congestion window when a congestion
 event is detected. The congestion window is calculated using
-W_cubic(0)=W_max*beta_cubic, where beta_cubic is the CUBIC
-multiplication decrease factor. We discuss how we set beta_cubic
-in {{mult-dec}} and how we set C in {{discussion}}.
+W_cubic(0)=W_max*beta_cubic, although implementations can further adjust
+the cwnd based on other fast recovery mechanisms. We discuss how
+we set beta_cubic in {{mult-dec}} and how we set C in {{discussion}}.
 
 Upon receiving an ACK during congestion avoidance, CUBIC computes the
 window increase rate during the next RTT period using Eq. 1. It sets
