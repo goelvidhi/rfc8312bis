@@ -370,7 +370,7 @@ calculated using the following equation:
 
 ~~~
     if (cwnd < W_max) {
-        K = cubic_root(W_max - cwnd) / C              (Eq. 2)
+        K = cubic_root((W_max - cwnd) / C)            (Eq. 2)
     } else {
         K = 0
     }
