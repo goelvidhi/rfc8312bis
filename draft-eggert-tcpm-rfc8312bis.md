@@ -772,6 +772,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 
 - acknowledge former co-authors (#18)
 - prevent cwnd from becoming less than two (#9)
+- add list of variables and constants (#12)
 
 ## Since RFC8312
 
