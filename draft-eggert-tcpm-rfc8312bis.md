@@ -337,7 +337,6 @@ W_est(t):
   in the TCP-friendly region, that is, an estimate for the congestion
   window if the TCP-NewReno congestion controller was used.
 
-
 ## Window Increase Function {#win-inc}
 
 CUBIC maintains the acknowledgment (ACK) clocking of Standard TCP by
