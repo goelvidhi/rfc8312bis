@@ -793,10 +793,10 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 
 ## Since draft-eggert-tcpm-rfc8312bis-00
 
-- acknowledge former co-authors (#18)
-- prevent cwnd from becoming less than two (#9)
-- add list of variables and constants (#12)
-- update K's definition and add bounds for CUBIC target cwnd (#3)
+- acknowledge former co-authors (#15)
+- prevent cwnd from becoming less than two (#7)
+- add list of variables and constants (#5, #6)
+- update K's definition and add bounds for CUBIC target cwnd (#1)
 
 ## Since RFC8312
 
