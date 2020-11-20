@@ -796,7 +796,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - acknowledge former co-authors (#18)
 - prevent cwnd from becoming less than two (#9)
 - add list of variables and constants (#12)
-- update K's definition and add bounds for CUBIC target cwnd
+- update K's definition and add bounds for CUBIC target cwnd (#3)
 
 ## Since RFC8312
 
