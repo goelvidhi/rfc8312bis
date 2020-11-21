@@ -385,14 +385,16 @@ W_max, K is set to 0.
 
 Upon receiving an ACK during congestion avoidance, CUBIC computes the
 target congestion window size after the next RTT using Eq. 1 as
-follows, where RTT is the smoothed round-trip time.
+follows, where RTT is the smoothed round-trip time. The lower and upper
+bounds below ensure that CUBIC's congestion window increase rate is
+non-decreasing and is less than the increase rate of slow start.
 
 ~~~
-    target = W_cubic(t + RTT)       // cwnd after an RTT
-    if (target < cwnd) {            // lower bound
+    target = W_cubic(t + RTT)         // cwnd after an RTT
+    if (target < cwnd) {              // lower bound
         target = cwnd
-    } else if (target > 2 * cwnd) { // upper bound
-        target = 2 * cwnd
+    } else if (target > 1.5 * cwnd) { // upper bound
+        target = 1.5 * cwnd
     }
 ~~~
 
@@ -796,7 +798,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - acknowledge former co-authors (#15)
 - prevent cwnd from becoming less than two (#7)
 - add list of variables and constants (#5, #6)
-- update K's definition and add bounds for CUBIC target cwnd (#1)
+- update K's definition and add bounds for CUBIC target cwnd (#1, #14)
 
 ## Since RFC8312
 
