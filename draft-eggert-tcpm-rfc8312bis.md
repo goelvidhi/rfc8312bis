@@ -801,6 +801,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - prevent cwnd from becoming less than two (#7)
 - add list of variables and constants (#5, #6)
 - update K's definition and add bounds for CUBIC target cwnd (#1, #14)
+- update W_est to use AIMD approach (#20)
 
 ## Since RFC8312
 
