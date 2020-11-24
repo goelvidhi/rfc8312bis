@@ -448,8 +448,8 @@ W_est is set equal to cwnd at the start of the congestion avoidance
 stage. After that, on every ACK, W_est is updated using Eq. 4.
 
 ~~~
-    W_est += [3 * (1 - beta_cubic) / (1 + beta_cubic)] *
-              (segments_acked / cwnd)                 (Eq. 4)
+    W_est = W_est + [3 * (1 - beta_cubic) / (1 + beta_cubic)] *
+             (segments_acked / cwnd)                  (Eq. 4)
 ~~~
 
 ## Concave Region
