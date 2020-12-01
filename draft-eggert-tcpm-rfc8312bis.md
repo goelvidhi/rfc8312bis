@@ -38,6 +38,15 @@ author:
   email: sangtae.ha@colorado.edu
   uri: "https://netstech.org/sangtaeha/"
 -
+  name: Vidhi Goel
+  org: Apple Inc.
+  street: One Apple Park Way
+  city: Cupertino
+  region: California
+  code: 95014
+  country: USA
+  email: vidhi_goel@apple.com
+-
   name: Lars Eggert
   org: NetApp
   street: Stenbergintie 12 B
@@ -47,15 +56,6 @@ author:
   email: lars@eggert.org
   uri: "https://eggert.org/"
   role: editor
--
-  name: Vidhi Goel
-  org: Apple Inc.
-  street: One Apple Park Way
-  city: Cupertino
-  region: California
-  code: 95014
-  country: USA
-  email: vidhi_goel@apple.com
 
 informative:
   FHP00:
