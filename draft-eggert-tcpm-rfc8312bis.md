@@ -495,7 +495,7 @@ calculated as described in {{win-inc}}.
 When a packet loss is detected by duplicate ACKs or a network
 congestion is detected by ECN-Echo ACKs, CUBIC updates its W_max
 and reduces its cwnd and ssthresh immediately as below. For both
-packet loss and congestion detection by ECN, the sender MAY
+packet loss and congestion detection through ECN, the sender MAY
 employ a fast recovery algorithm to gradually adjust the
 congestion window to its new reduced value. Parameter beta_cubic
 SHOULD be set to 0.7.
