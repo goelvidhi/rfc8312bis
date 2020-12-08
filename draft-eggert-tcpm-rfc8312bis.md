@@ -563,6 +563,23 @@ elapsed time since the beginning of the current congestion avoidance,
 K is set to 0, and W_max is set to the congestion window size at the
 beginning of the current congestion avoidance.
 
+## Spurious Loss events
+For the case where CUBIC reduces its congestion window in response
+to detection of packet loss via duplicate ACKs or timeout, there is a
+possibility that the missing ACK would arrive after the congestion
+window reduction and the corresponding packet retransmission. For
+example, packet reordering which is common in networks could trigger
+this behavior. A high degree of packet reordering could cause multiple
+events of congestion window reduction where spurious losses are
+incorrectly interpreted as congestion signals, thus degrading CUBIC's
+performance significantly.
+
+A CUBIC implementation SHOULD remember its state variables, such as cwnd,
+ssthresh, W_max, K, W_est and start of the current congestion avoidance
+stage before it updates these variables due to a congestion event. If the
+loss event was later found out to be spurious, CUBIC SHOULD restore
+its variables to the previously saved state.
+
 ## Slow Start
 
 CUBIC MUST employ a slow-start algorithm, when the cwnd is no more
@@ -813,6 +830,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - add Vidhi as co-author ([#17](https://github.com/NTAP/rfc8312bis/issues/17))
 - note for fast recovery during cwnd decrease due to congestion event
   ([#11](https://github.com/NTAP/rfc8312bis11/issues/11))
+- add section for Spurious Loss events (#23)
 
 ## Since RFC8312
 
