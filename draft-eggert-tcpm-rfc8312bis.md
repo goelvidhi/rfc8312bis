@@ -564,6 +564,7 @@ K is set to 0, and W_max is set to the congestion window size at the
 beginning of the current congestion avoidance.
 
 ## Spurious Loss events
+
 For the case where CUBIC reduces its congestion window in response
 to detection of packet loss via duplicate ACKs or timeout, there is a
 possibility that the missing ACK would arrive after the congestion
