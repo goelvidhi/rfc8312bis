@@ -594,8 +594,8 @@ value of the following variables before the congestion window reduction.
     prior_epoch_start = epoch_start
 ~~~
 
-CUBIC MAY choose the Eifel detection algorithm {{!RFC 3522}} or Forward
-RTO-Recovery {{!RFC 5682}} or use DSACK {{!RFC 3708}} to detect spurious
+CUBIC MAY choose the Eifel detection algorithm {{!RFC3522}} or Forward
+RTO-Recovery {{!RFC5682}} or use DSACK {{!RFC3708}} to detect spurious
 retransmissions. Once a spurious loss event is detected, CUBIC should
 restore the original values of above mentioned variables as follows.
 
