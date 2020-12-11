@@ -345,6 +345,12 @@ K:
 : The time period in seconds it takes to increase the current congestion
   window size to W_max
 
+current_time
+: Current time of the system in seconds
+
+epoch_start:
+: The time in seconds at which the current congestion avoidance stage starts
+
 W_cubic(t):
 : Target value of the congestion window in segments at time t in seconds
   based on the cubic increase function as described in {{win-inc}}
@@ -376,10 +382,12 @@ CUBIC uses the following window increase function:
 ~~~
 
 where t is the elapsed time in seconds from the beginning of the
-current congestion avoidance stage, and K is the time
-period that the above function takes to increase the current window
-size to W_max if there are no further congestion events and is
-calculated using the following equation:
+current congestion avoidance stage, that is, t = (current_time -
+epoch_start), where epoch_start is the time at which the current
+congestion avoidance stage starts. K is the time period that the
+above function takes to increase the current window size to W_max
+if there are no further congestion events and is calculated using
+the following equation:
 
 ~~~
     K = cubic_root((W_max - cwnd) / C)                (Eq. 2)
@@ -575,11 +583,32 @@ events of congestion window reduction where spurious losses are
 incorrectly interpreted as congestion signals, thus degrading CUBIC's
 performance significantly.
 
-A CUBIC implementation SHOULD remember its state variables, such as cwnd,
-ssthresh, W_max, K, W_est and start of the current congestion avoidance
-stage before it updates these variables due to a congestion event. If the
-loss event was later found out to be spurious, CUBIC SHOULD restore
-its variables to the previously saved state.
+When there is a loss event, A CUBIC implementation SHOULD save the current
+value of the following variables before the congestion window reduction.
+
+~~~
+    prior_cwnd = cwnd
+    prior_ssthresh = ssthresh
+    prior_W_max = W_max
+    prior_K = K
+    prior_epoch_start = epoch_start
+~~~
+
+CUBIC MAY choose the Eifel detection algorithm {{!RFC 3522}} or Forward
+RTO-Recovery {{!RFC 5682}} or use DSACK {{!RFC 3708}} to detect spurious
+retransmissions. Once a spurious loss event is detected, CUBIC should
+restore the original values of above mentioned variables as follows.
+
+~~~
+   cwnd = max(cwnd, prior_cwnd)
+   ssthresh = prior_ssthresh
+   W_max = prior_W_max
+   K = prior_K
+   epoch_start = prior_epoch_start
+~~~
+
+Restoring to the original values ensures that CUBIC's performance is
+similar to what it would be if there were no spurious losses.
 
 ## Slow Start
 
@@ -831,7 +860,8 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - add Vidhi as co-author ([#17](https://github.com/NTAP/rfc8312bis/issues/17))
 - note for fast recovery during cwnd decrease due to congestion event
   ([#11](https://github.com/NTAP/rfc8312bis11/issues/11))
-- add section for Spurious Loss events (#23)
+- add section for Spurious Loss events
+  ([#23] (https://github.com/NTAP/rfc8312bis/issues/23))
 
 ## Since RFC8312
 
