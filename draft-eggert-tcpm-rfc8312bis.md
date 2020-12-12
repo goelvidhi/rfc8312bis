@@ -598,7 +598,9 @@ value of the following variables before the congestion window reduction.
 CUBIC MAY implement an algorithm to detect spurious retransmissions,
 such as DSACK {{?RFC3708}}, Forward RTO-Recovery {{?RFC5682}} or
 Eifel {{?RFC3522}}. Once a spurious loss event is detected, CUBIC SHOULD
-restore the original values of above mentioned variables as follows.
+restore the original values of above mentioned variables as follows. For
+the congestion window, CUBIC chooses the larger of the current and the
+previous congestion window values in accordance with its performance goals.
 
 ~~~
     cwnd = max(cwnd, prior_cwnd)
