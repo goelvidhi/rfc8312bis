@@ -590,9 +590,9 @@ value of the following variables before the congestion window reduction.
     prior_cwnd = cwnd
     prior_ssthresh = ssthresh
     prior_W_max = W_max
-    prior_W_est = W_est
     prior_K = K
     prior_epoch_start = epoch_start
+    prior_W_est = W_est
 ~~~
 
 CUBIC MAY implement an algorithm to detect spurious retransmissions,
@@ -601,12 +601,12 @@ Eifel {{?RFC3522}}. Once a spurious loss event is detected, CUBIC should
 restore the original values of above mentioned variables as follows.
 
 ~~~
-   cwnd = max(cwnd, prior_cwnd)
-   ssthresh = prior_ssthresh
-   W_max = prior_W_max
-   W_est = prior_W_est
-   K = prior_K
-   epoch_start = prior_epoch_start
+    cwnd = max(cwnd, prior_cwnd)
+    ssthresh = prior_ssthresh
+    W_max = prior_W_max
+    K = prior_K
+    epoch_start = prior_epoch_start
+    W_est = prior_W_est
 ~~~
 
 Restoring to the original values ensures that CUBIC's performance is
