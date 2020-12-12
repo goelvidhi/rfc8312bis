@@ -597,7 +597,7 @@ value of the following variables before the congestion window reduction.
 
 CUBIC MAY implement an algorithm to detect spurious retransmissions,
 such as DSACK {{?RFC3708}}, Forward RTO-Recovery {{?RFC5682}} or
-Eifel {{?RFC3522}}. Once a spurious loss event is detected, CUBIC should
+Eifel {{?RFC3522}}. Once a spurious loss event is detected, CUBIC SHOULD
 restore the original values of above mentioned variables as follows.
 
 ~~~
