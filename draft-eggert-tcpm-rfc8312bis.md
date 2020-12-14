@@ -614,9 +614,9 @@ if there were no spurious losses.
     }
 ~~~
 
-In rare cases, when the detection happens long after a spurious loss
-event, CUBIC SHOULD continue to use the current and the most recent
-values of these variables.
+In rare cases, when the detection happens long after a spurious loss event
+and the current cwnd is already higher than the prior_cwnd, CUBIC SHOULD
+continue to use the current and the most recent values of these variables.
 
 ## Slow Start
 
