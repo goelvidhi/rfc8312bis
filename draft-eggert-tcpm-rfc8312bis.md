@@ -993,20 +993,20 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - fix a mistake in *W<sub>max</sub>* calculation in the fast convergence section.
   ([#51](https://github.com/NTAP/rfc8312bis/issues/51))
   
-- Clarity on setting ssthresh and *cwnd<sub>start</sub>* during multiplicative decrease.
+- clarity on setting ssthresh and *cwnd<sub>start</sub>* during multiplicative decrease.
   ([#53](https://github.com/NTAP/rfc8312bis/issues/53))
 
 ## Since draft-eggert-tcpm-rfc8312bis-01
 
-- Rename TCP-Friendly to AIMD-Friendly and rename Standard TCP to AIMD
+- rename TCP-Friendly to AIMD-Friendly and rename Standard TCP to AIMD
   TCP to avoid confusion as CUBIC has been widely used in the Internet.
   ([#38](https://github.com/NTAP/rfc8312bis/issues/38))
 
-- Change introductory text to reflect the significant broader
+- change introductory text to reflect the significant broader
   deployment of CUBIC in the Internet.
   ([#39](https://github.com/NTAP/rfc8312bis/issues/39))
 
-- Rephrase introduction to avoid referring to variables that have not
+- rephrase introduction to avoid referring to variables that have not
   been defined yet.
 
 ## Since draft-eggert-tcpm-rfc8312bis-00
@@ -1019,7 +1019,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 
 - add list of variables and constants
   ([#5](https://github.com/NTAP/rfc8312bis/issues/5),
-  [#6](https://github.com/NTAP/rfc8312bis/issues/5))
+  [#6](https://github.com/NTAP/rfc8312bis/issues/6))
 
 - update *K*'s definition and add bounds for CUBIC *target* *cwnd*
   {{SXEZ19}} ([#1](https://github.com/NTAP/rfc8312bis/issues/1),
@@ -1037,7 +1037,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
   ([#17](https://github.com/NTAP/rfc8312bis/issues/17))
 
 - note for Fast Recovery during *cwnd* decrease due to congestion
-  event ([#11](https://github.com/NTAP/rfc8312bis11/issues/11))
+  event ([#11](https://github.com/NTAP/rfc8312bis/issues/11))
 
 - add section for spurious congestion events
   ([#23](https://github.com/NTAP/rfc8312bis/issues/23))
