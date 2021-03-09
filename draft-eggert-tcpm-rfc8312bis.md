@@ -617,7 +617,7 @@ for each received ACK, where *target* is calculated as described in
 When a packet loss is detected by duplicate ACKs or by receiving
 packets carrying ECE flags, CUBIC updates *W<sub>max</sub>* and
 reduces *cwnd* and *ssthresh* immediately as described below. An
-implementation MAY set a smaller ssthresh than suggested below to
+implementation MAY set a smaller *ssthresh* than suggested below to
 accomodate rate-limited applications as described in {{?RFC7661}}.
 For both packet loss and congestion detection through ECN, the sender MAY
 employ a Fast Recovery algorithm to gradually adjust the congestion
