@@ -621,7 +621,7 @@ implementation MAY set a smaller *ssthresh* than suggested below to
 accomodate rate-limited applications as described in {{?RFC7661}}.
 For both packet loss and congestion detection through ECN, the sender MAY
 employ a Fast Recovery algorithm to gradually adjust the congestion
-window to its new reduced ssthresh value. The parameter {{{β}{}}}*<sub>cubic</sub>*
+window to its new reduced *ssthresh* value. The parameter {{{β}{}}}*<sub>cubic</sub>*
 SHOULD be set to 0.7.
 
 ~~~ math
