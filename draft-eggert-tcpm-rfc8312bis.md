@@ -471,8 +471,8 @@ K = \sqrt[3]{\frac{W_{max} - cwnd_{start}}{C}}
 
 where *cwnd<sub>start</sub>* is the congestion window at the beginning
 of the current congestion avoidance stage. *cwnd<sub>start</sub>* is
-calculated as described in {{mult-dec}} when a congestion event is
-detected.
+the new congestion window calculated when a congestion event is
+detected as described in {{mult-dec}}.
 
 Upon receiving an ACK during congestion avoidance, CUBIC computes the
 *target* congestion window size after the next *RTT* using {{eq1}} as
