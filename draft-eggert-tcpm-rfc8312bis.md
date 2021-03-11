@@ -469,8 +469,10 @@ K = \sqrt[3]{\frac{W_{max} - cwnd_{start}}{C}}
 ~~~
 {: #eq2 artwork-align="center" }
 
-where *cwnd<sub>start</sub>* is the new congestion window calculated
-when a congestion event is detected as described in {{mult-dec}}.
+where *cwnd<sub>start</sub>* is the congestion window at the beginning
+of the current congestion avoidance stage. For example, right after a
+congestion event, *cwnd<sub>start</sub>* is equal to the new cwnd
+calculated as described in {{mult-dec}}.
 
 Upon receiving an ACK during congestion avoidance, CUBIC computes the
 *target* congestion window size after the next *RTT* using {{eq1}} as
@@ -628,7 +630,7 @@ ssthresh = cwnd * β_{cubic} &
 \text{// new slow-start threshold} \\
 ssthresh = \mathrm{max}(ssthresh, 2) &
 \text{// threshold is at least 2 MSS} \\
-cwnd_{start} = ssthresh &
+cwnd = ssthresh &
 \text{// window reduction} \\
 \end{array}
 ~~~
