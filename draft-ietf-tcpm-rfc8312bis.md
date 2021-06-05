@@ -188,7 +188,7 @@ CUBIC is safe for deployment on the global Internet and delivers
 substantial benefits over traditional AIMD congestion control. It is
 therefore to be regarded as the current standard for TCP congestion
 control. CUBIC can also be used for other transport protocols such as
-QUIC and SCTP as a default congestion controller.
+QUIC {{?RFC9000}} and SCTP {{?RFC4960}} as a default congestion controller.
 
 The design of CUBIC was motivated by the well-documented problem
 traditional TCP has with  low utilization over fast and long-distance
