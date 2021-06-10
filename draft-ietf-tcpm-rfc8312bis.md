@@ -585,7 +585,7 @@ W_{est} = W_{est} + α_{aimd} * \frac{segments\_acked}{cwnd}
 {: #eq4 artwork-align="center" }
 
 Note that once *W<sub>est</sub>* reaches *W<sub>max</sub>*, that is,
-*W<sub>est</sub>* >= *W<sub>max</sub>*, we need to start probing to
+*W<sub>est</sub>* >= *W<sub>max</sub>*, CUBIC needs to start probing to
 determine the new value of *W<sub>max</sub>*. At this point,
 {{{α}{}}}*<sub>aimd</sub>* SHOULD be set to 1 to ensure that
 CUBIC can achieve the same congestion window increment as AIMD
