@@ -614,8 +614,8 @@ highly asynchronous, some amount of perturbation is always possible
 without causing a major change in available bandwidth.
 
 Unless it is not overridden by AIMD window increase, CUBIC is very
-careful in this region. The convex profile aims that
-the window increases very slowly at the beginning when the *cwnd* is
+careful in this region. The convex profile aims to
+increase the window very slowly at the beginning when *cwnd* is
 around *W<sub>max</sub>* and then gradually increases its increase rate.
 We also call this region the "maximum probing phase", since CUBIC is
 searching for a new *W<sub>max</sub>*. In this region, *cwnd* MUST be
