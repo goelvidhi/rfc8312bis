@@ -558,8 +558,8 @@ Table of Contents
    is highly asynchronous, some amount of perturbation is always
    possible without causing a major change in available bandwidth.
 
-   Unless it is not overridden by AIMD window increase, CUBIC is very
-   careful in this region.  The convex profile aims to increase the
+   Unless it is not overridden by the AIMD window increase, CUBIC is
+   very careful in this region.  The convex profile aims to increase the
    window very slowly at the beginning when _cwnd_ is around _W_max_ and
    then gradually increases its rate of increase.  We also call this
    region the "maximum probing phase", since CUBIC is searching for a
