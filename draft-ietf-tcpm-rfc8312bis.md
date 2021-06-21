@@ -613,7 +613,7 @@ available bandwidth after some flow departures. Since the Internet is
 highly asynchronous, some amount of perturbation is always possible
 without causing a major change in available bandwidth.
 
-Unless it is not overridden by the AIMD window increase, CUBIC is very
+Unless it is overridden by the AIMD window increase, CUBIC is very
 careful in this region. The convex profile aims to
 increase the window very slowly at the beginning when *cwnd* is
 around *W<sub>max</sub>* and then gradually increases its rate of increase.
