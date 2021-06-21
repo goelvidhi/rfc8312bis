@@ -561,9 +561,9 @@ Table of Contents
    Unless it is not overridden by AIMD window increase, CUBIC is very
    careful in this region.  The convex profile aims to increase the
    window very slowly at the beginning when _cwnd_ is around _W_max_ and
-   then gradually increases its increase rate.  We also call this region
-   the "maximum probing phase", since CUBIC is searching for a new
-   _W_max_. In this region, _cwnd_ MUST be incremented by
+   then gradually increases its rate of increase.  We also call this
+   region the "maximum probing phase", since CUBIC is searching for a
+   new _W_max_. In this region, _cwnd_ MUST be incremented by
 
                                target - cwnd
                                -------------
