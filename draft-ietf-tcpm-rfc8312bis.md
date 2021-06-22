@@ -378,7 +378,7 @@ The unit of all window sizes in this document is segments of the
 maximum segment size (MSS), and the unit of all times is seconds.
 Implementations can use bytes to express window sizes which would
 require factoring in the maximum segment size wherever necessary
-and replacing *segments<sub>acked</sub>* with the number of bytes
+and replacing *segments_acked* with the number of bytes
 acknowledged in {{eq4}}.
 
 ### Constants of Interest
@@ -449,7 +449,7 @@ that is, W<sub>cubic</sub>(*t* + *RTT*), as described in {{win-inc}}.
 An estimate for the congestion window in segments in the AIMD-friendly
 region, that is, an estimate for the congestion window of AIMD TCP.
 
-*segments<sub>acked</sub>*:
+*segments_acked*:
 Number of MSS-sized segments acked when an ACK is received. This
 number can be a decimal less than 1 when an ACK acknowledges a
 segment smaller than MSS.
