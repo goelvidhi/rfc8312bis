@@ -398,7 +398,7 @@ Table of Contents
 
    _segments_acked_: Number of MSS-sized segments acked when an ACK is
    received.  This number can be a decimal less than 1 when an ACK
-   acknowledges a segment smaller than MSS.
+   acknowledges a segment smaller than the MSS.
 
 4.2.  Window Increase Function
 
