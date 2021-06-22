@@ -376,6 +376,10 @@ during the different stages of the CUBIC congestion controller.
 
 The unit of all window sizes in this document is segments of the
 maximum segment size (MSS), and the unit of all times is seconds.
+Implementations can use bytes to express window sizes which would
+require factoring in the maximum segment size wherever necessary
+and replacing *segments<sub>acked</sub>* with the number of bytes
+acknowledged in {{eq4}}.
 
 ### Constants of Interest
 
@@ -445,8 +449,10 @@ that is, W<sub>cubic</sub>(*t* + *RTT*), as described in {{win-inc}}.
 An estimate for the congestion window in segments in the AIMD-friendly
 region, that is, an estimate for the congestion window of AIMD TCP.
 
-*segments_acked*:
-Number of segments acked when an ACK is received.
+*segments<sub>acked</sub>*:
+Number of MSS-sized segments acked when an ACK is received. This
+number can be a decimal less than 1 when an ACK acknowledges a
+segment smaller than MSS.
 
 ## Window Increase Function {#win-inc}
 
@@ -1004,16 +1010,19 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 ## Since draft-ietf-tcpm-rfc8312bis-02
 
 - add applicability to QUIC and SCTP
-  ([61](https://github.com/NTAP/rfc8312bis/issues/61))
+  ([#61](https://github.com/NTAP/rfc8312bis/issues/61))
 
 - clarity on setting <!--{{{α}{}}}-->alpha*<sub>aimd</sub>* to 1
-  ([68](https://github.com/NTAP/rfc8312bis/issues/68))
+  ([#68](https://github.com/NTAP/rfc8312bis/issues/68))
 
 - introduce <!--{{{α}{}}}-->alpha*<sub>cubic</sub>*
-  ([64](https://github.com/NTAP/rfc8312bis/issues/64))
+  ([#64](https://github.com/NTAP/rfc8312bis/issues/64))
 
 - clarify *cwnd* growth in convex region
-  ([69](https://github.com/NTAP/rfc8312bis/issues/69))
+  ([#69](https://github.com/NTAP/rfc8312bis/issues/69))
+
+- add guidance for using bytes instead of segments
+  ([#67](https://github.com/NTAP/rfc8312bis/issues/67))
 
 ## Since draft-ietf-tcpm-rfc8312bis-01
 
