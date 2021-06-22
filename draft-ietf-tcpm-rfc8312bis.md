@@ -376,7 +376,7 @@ during the different stages of the CUBIC congestion controller.
 
 The unit of all window sizes in this document is segments of the
 maximum segment size (MSS), and the unit of all times is seconds.
-Implementations can use bytes to express window sizes which would
+Implementations can use bytes to express window sizes, which would
 require factoring in the maximum segment size wherever necessary
 and replacing *segments_acked* with the number of bytes
 acknowledged in {{eq4}}.
