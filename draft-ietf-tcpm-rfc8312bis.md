@@ -1021,7 +1021,7 @@ Richard Scheffenegger and Alexander Zimmermann originally co-authored
 - clarify *cwnd* growth in convex region
   ([#69](https://github.com/NTAP/rfc8312bis/issues/69))
 
-- add guidance for using bytes instead of segments
+- add guidance for using bytes and mention that segments count is decimal
   ([#67](https://github.com/NTAP/rfc8312bis/issues/67))
 
 ## Since draft-ietf-tcpm-rfc8312bis-01
