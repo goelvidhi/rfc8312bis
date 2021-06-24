@@ -397,8 +397,9 @@ Table of Contents
    of AIMD TCP.
 
    _segments_acked_: Number of MSS-sized segments acked when an ACK is
-   received.  This number is a decimal and it can be less than 1 when an
-   ACK acknowledges a segment smaller than the MSS.
+   received.  This number will be a non-integer value when an ACK
+   acknowledges data that is not MSS-sized.  Specifically, it can be
+   less than 1 when an ACK acknowledges a segment smaller than the MSS.
 
 4.2.  Window Increase Function
 
