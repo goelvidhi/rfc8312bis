@@ -6,13 +6,13 @@ TCPM                                                               L. Xu
 Internet-Draft                                                       UNL
 Obsoletes: 8312 (if approved)                                      S. Ha
 Intended status: Standards Track                                Colorado
-Expires: 24 December 2021                                        I. Rhee
+Expires: 26 December 2021                                        I. Rhee
                                                                   Bowery
                                                                  V. Goel
                                                               Apple Inc.
                                                           L. Eggert, Ed.
                                                                   NetApp
-                                                            22 June 2021
+                                                            24 June 2021
 
 
                CUBIC for Fast and Long-Distance Networks
@@ -71,7 +71,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 December 2021.
+   This Internet-Draft will expire on 26 December 2021.
 
 Copyright Notice
 
@@ -397,8 +397,8 @@ Table of Contents
    of AIMD TCP.
 
    _segments_acked_: Number of MSS-sized segments acked when an ACK is
-   received.  This number can be a decimal less than 1 when an ACK
-   acknowledges a segment smaller than the MSS.
+   received.  This number is a decimal and it can be less than 1 when an
+   ACK acknowledges a segment smaller than the MSS.
 
 4.2.  Window Increase Function
 
