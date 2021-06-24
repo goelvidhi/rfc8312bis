@@ -1154,8 +1154,8 @@ B.1.  Since draft-ietf-tcpm-rfc8312bis-02
    *  clarify _cwnd_ growth in convex region (#69
       (https://github.com/NTAP/rfc8312bis/issues/69))
 
-   *  add guidance for using bytes instead of segments (#67
-      (https://github.com/NTAP/rfc8312bis/issues/67))
+   *  add guidance for using bytes and mention that segments count is
+      decimal (#67 (https://github.com/NTAP/rfc8312bis/issues/67))
 
 B.2.  Since draft-ietf-tcpm-rfc8312bis-01
 
