@@ -9,7 +9,6 @@ ipr: trust200902
 area: Transport
 workgroup: TCPM
 obsoletes: 8312
-
 stand_alone: yes
 pi: [toc, sortrefs, symrefs, docmapping]
 
